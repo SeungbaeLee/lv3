@@ -27,8 +27,8 @@ public class AdminDetails implements UserDetails {
 
         Collection<GrantedAuthority> authorities = new ArrayList<>();
 
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + admin.getRole().toString()));
-//        authorities.add(new SimpleGrantedAuthority(admin.getRole().toString()));
+//        authorities.add(new SimpleGrantedAuthority("ROLE_" + admin.getRole().toString()));
+        authorities.add(new SimpleGrantedAuthority(admin.getRole().toString()));
 
         return authorities;
 

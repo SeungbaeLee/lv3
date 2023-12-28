@@ -40,8 +40,11 @@ public class LectureService {
         lecture.updateLecture(lecturePatchDto.getLectureName(), lecturePatchDto.getPrice(), lecturePatchDto.getIntroduction(), lecturePatchDto.getCategory());
         return LectureResponseDto.fromEntity(lecture);
     }
+    public LectureResponseDto readLecture(long lectureId) {
+        Lecture lecture = findById(lectureId);
+        return LectureResponseDto.fromEntity(lecture);
+    }
 
-    //read
     public List<LectureResponseDto> readLectureByInstructor(long instructorId) {
         Instructor instructor = instructorService.isExistingInstructor(instructorId);
         List<Lecture> lectureList = lectureRepository.findLecturesByInstructorId(instructor.getInstructorId());

@@ -45,4 +45,10 @@ public class LectureController {
         List<LectureResponseDto> lectureResponseDtoList = lectureService.readLectureByCategory(category);
         return new ResponseEntity<>(lectureResponseDtoList, HttpStatus.OK);
     }
+
+    @GetMapping("/{lectureId}")
+    public ResponseEntity readLecture(@PathVariable("lectureId") @Positive long lectureId) {
+        LectureResponseDto lectureResponseDto = lectureService.readLecture(lectureId);
+        return new ResponseEntity<>(lectureResponseDto, HttpStatus.OK);
+    }
 }

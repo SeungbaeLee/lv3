@@ -24,6 +24,12 @@ public class InstructorController {
         return new ResponseEntity<>(createdInstructor, HttpStatus.CREATED);
     }
 
+    @GetMapping("/{instructorId}")
+    public ResponseEntity readInstructor(@PathVariable("instructorId") @Positive long instructorId) {
+        InstructorResponseDto foundInstructor = instructorService.readInstructor(instructorId);
+        return new ResponseEntity<>(foundInstructor, HttpStatus.OK);
+    }
+
     @PatchMapping("/{instructorId}")
     public ResponseEntity updateInstructor(@PathVariable("instructorId") @Positive long instructorId,
                                            @Valid @RequestBody InstructorPatchDto instructorPatchDto) {

@@ -25,6 +25,12 @@ public class InstructorService {
         return InstructorResponseDto.fromEntity(savedInstructor);
     }
 
+    //read
+    public InstructorResponseDto readInstructor(long instructorId) {
+        Instructor instructor = isExistingInstructor(instructorId);
+        return InstructorResponseDto.fromEntity(instructor);
+    }
+
     //update
     public InstructorResponseDto updateInstructor(long instructorId, InstructorPatchDto instructorPatchDto) {
         Instructor instructor = isExistingInstructor(instructorId);

@@ -36,4 +36,10 @@ public class InstructorController {
         InstructorResponseDto createdInstructor = instructorService.updateInstructor(instructorId, instructorPatchDto);
         return new ResponseEntity<>(createdInstructor, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{instructorId}")
+    public ResponseEntity deleteInstructor(@PathVariable("instructorId") @Positive long instructorId) {
+        instructorService.deleteInstructor(instructorId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

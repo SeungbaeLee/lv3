@@ -39,11 +39,19 @@ public class InstructorService {
 
     }
 
+    //delete
+    public void deleteInstructor(long instructorId) {
+        Instructor instructor = isExistingInstructor(instructorId);
+        instructorRepository.delete(instructor);
+    }
+
+    //검증
     public Instructor isExistingInstructor(long instructorId) {
         Optional<Instructor> optionalInstructor = instructorRepository.findById(instructorId);
         Instructor instructor = optionalInstructor.orElseThrow(() -> new RuntimeException("존재하지 않는 강사입니다."));
         return instructor;
     }
+
     public Instructor findByName(String name) {
         Optional<Instructor> optionalInstructor = instructorRepository.findByInstructorName(name);
         Instructor instructor = optionalInstructor.orElseThrow(()-> new RuntimeException("존재하지 않는 강사입니다."));

@@ -59,6 +59,12 @@ public class LectureService {
     }
 
 
+    public void deleteLecture(long lectureId) {
+        Lecture lecture = findById(lectureId);
+        lectureRepository.delete(lecture);
+    }
+
+
     public Lecture findById(long lectureId) {
         Optional<Lecture> optionalLecture = lectureRepository.findById(lectureId);
         Lecture lecture = optionalLecture.orElseThrow(() -> new RuntimeException("존재하지 않는 강의 입니다."));

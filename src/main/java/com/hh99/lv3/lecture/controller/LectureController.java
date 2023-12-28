@@ -51,4 +51,10 @@ public class LectureController {
         LectureResponseDto lectureResponseDto = lectureService.readLecture(lectureId);
         return new ResponseEntity<>(lectureResponseDto, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{lectureId}")
+    public ResponseEntity deleteLecture(@PathVariable("lectureId") @Positive long lectureId) {
+        lectureService.deleteLecture(lectureId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

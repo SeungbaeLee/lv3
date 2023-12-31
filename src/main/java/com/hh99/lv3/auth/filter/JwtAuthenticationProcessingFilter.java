@@ -75,7 +75,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
                 .ifPresent(accessToken -> jwtService.extractEmail(accessToken)
                         .ifPresent(email -> adminRepository.findByEmail(email)
                                 .ifPresent(this::saveAuthentication)));
-
+        log.info("saveAuthentication() 호출");
         filterChain.doFilter(request, response);
     }
 

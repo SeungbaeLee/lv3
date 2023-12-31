@@ -1,7 +1,6 @@
 package com.hh99.lv3.lecture.service;
 
 import com.hh99.lv3.instructor.entity.Instructor;
-import com.hh99.lv3.instructor.repository.InstructorRepository;
 import com.hh99.lv3.instructor.service.InstructorService;
 import com.hh99.lv3.lecture.dto.LecturePatchDto;
 import com.hh99.lv3.lecture.dto.LecturePostDto;
@@ -36,12 +35,12 @@ public class LectureService {
 
     //update
     public LectureResponseDto updateLecture(long lectureId, LecturePatchDto lecturePatchDto) {
-        Lecture lecture = findById(lectureId);
+        Lecture lecture = findLectureById(lectureId);
         lecture.updateLecture(lecturePatchDto.getLectureName(), lecturePatchDto.getPrice(), lecturePatchDto.getIntroduction(), lecturePatchDto.getCategory());
         return LectureResponseDto.fromEntity(lecture);
     }
     public LectureResponseDto readLecture(long lectureId) {
-        Lecture lecture = findById(lectureId);
+        Lecture lecture = findLectureById(lectureId);
         return LectureResponseDto.fromEntity(lecture);
     }
 
@@ -60,12 +59,12 @@ public class LectureService {
 
 
     public void deleteLecture(long lectureId) {
-        Lecture lecture = findById(lectureId);
+        Lecture lecture = findLectureById(lectureId);
         lectureRepository.delete(lecture);
     }
 
 
-    public Lecture findById(long lectureId) {
+    public Lecture findLectureById(long lectureId) {
         Optional<Lecture> optionalLecture = lectureRepository.findById(lectureId);
         Lecture lecture = optionalLecture.orElseThrow(() -> new RuntimeException("존재하지 않는 강의 입니다."));
         return lecture;

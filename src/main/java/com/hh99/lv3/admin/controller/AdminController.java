@@ -2,7 +2,6 @@ package com.hh99.lv3.admin.controller;
 
 import com.hh99.lv3.admin.dto.AdminPostDto;
 import com.hh99.lv3.admin.dto.AdminResponseDto;
-import com.hh99.lv3.admin.entity.Admin;
 import com.hh99.lv3.admin.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

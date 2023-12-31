@@ -41,7 +41,7 @@ public class LectureController {
     }
 
     @GetMapping
-    public ResponseEntity readLectureByInstructor(@RequestParam("category") Category category) {
+    public ResponseEntity readLectureByCategory(@RequestParam("category") Category category) {
         List<LectureResponseDto> lectureResponseDtoList = lectureService.readLectureByCategory(category);
         return new ResponseEntity<>(lectureResponseDtoList, HttpStatus.OK);
     }

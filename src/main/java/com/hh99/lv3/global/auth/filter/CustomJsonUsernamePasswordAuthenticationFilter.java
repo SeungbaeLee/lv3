@@ -1,4 +1,4 @@
-package com.hh99.lv3.global.auth.handler;
+package com.hh99.lv3.global.auth.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;

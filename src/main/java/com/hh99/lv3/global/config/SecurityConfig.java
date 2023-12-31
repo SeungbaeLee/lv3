@@ -3,7 +3,7 @@ package com.hh99.lv3.global.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hh99.lv3.domain.admin.repository.AdminRepository;
 import com.hh99.lv3.global.auth.filter.JwtAuthenticationProcessingFilter;
-import com.hh99.lv3.global.auth.handler.CustomJsonUsernamePasswordAuthenticationFilter;
+import com.hh99.lv3.global.auth.filter.CustomJsonUsernamePasswordAuthenticationFilter;
 import com.hh99.lv3.global.auth.handler.LoginFailureHandler;
 import com.hh99.lv3.global.auth.handler.LoginSuccessHandler;
 import com.hh99.lv3.global.auth.jwt.JwtService;

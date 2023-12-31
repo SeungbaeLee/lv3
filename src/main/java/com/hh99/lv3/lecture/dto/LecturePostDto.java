@@ -3,12 +3,13 @@ package com.hh99.lv3.lecture.dto;
 import com.hh99.lv3.instructor.entity.Instructor;
 import com.hh99.lv3.lecture.entity.Category;
 import com.hh99.lv3.lecture.entity.Lecture;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Getter
+@NoArgsConstructor
 public class LecturePostDto {
         @NonNull
         private String lectureName;

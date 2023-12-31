@@ -1,12 +1,13 @@
 package com.hh99.lv3.instructor.dto;
 
 import com.hh99.lv3.instructor.entity.Instructor;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Getter
+@NoArgsConstructor
 public class InstructorPostDto {
 
         @NonNull

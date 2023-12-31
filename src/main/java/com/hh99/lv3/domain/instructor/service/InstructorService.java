@@ -27,13 +27,13 @@ public class InstructorService {
 
     //read
     public InstructorResponseDto readInstructor(long instructorId) {
-        Instructor instructor = isExistingInstructor(instructorId);
+        Instructor instructor = findInstructorById(instructorId);
         return InstructorResponseDto.fromEntity(instructor);
     }
 
     //update
     public InstructorResponseDto updateInstructor(long instructorId, InstructorPatchDto instructorPatchDto) {
-        Instructor instructor = isExistingInstructor(instructorId);
+        Instructor instructor = findInstructorById(instructorId);
         instructor.updateInstructor(instructorPatchDto.years, instructorPatchDto.company, instructorPatchDto.phoneNumber,instructorPatchDto.instruction);
         return InstructorResponseDto.fromEntity(instructor);
 
@@ -41,15 +41,19 @@ public class InstructorService {
 
     //delete
     public void deleteInstructor(long instructorId) {
-        Instructor instructor = isExistingInstructor(instructorId);
+        Instructor instructor = findInstructorById(instructorId);
         instructorRepository.delete(instructor);
     }
 
     //검증
-    public Instructor isExistingInstructor(long instructorId) {
+    public Instructor findInstructorById(long instructorId) {
         Optional<Instructor> optionalInstructor = instructorRepository.findById(instructorId);
         Instructor instructor = optionalInstructor.orElseThrow(() -> new RuntimeException("존재하지 않는 강사입니다."));
         return instructor;
+    }
+
+    public boolean isInstructorExist(long instructorId) {
+        return instructorRepository.existsById(instructorId);
     }
 
     public Instructor findByName(String name) {

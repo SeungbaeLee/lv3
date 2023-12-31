@@ -45,10 +45,12 @@ public class LectureService {
     }
 
     public List<LectureResponseDto> readLectureByInstructor(long instructorId) {
-        Instructor instructor = instructorService.isExistingInstructor(instructorId);
-        List<Lecture> lectureList = lectureRepository.findLecturesByInstructorId(instructor.getInstructorId());
-
-        return LectureResponseDto.fromEntityList(lectureList);
+        if (!instructorService.isInstructorExist(instructorId)) {
+            throw new NullPointerException("존재하지 않는 강사입니다.");
+        } else {
+            List<Lecture> lectureList = lectureRepository.findLecturesByInstructorId(instructorId);
+            return LectureResponseDto.fromEntityList(lectureList);
+        }
     }
 
     public List<LectureResponseDto> readLectureByCategory(Category category) {
